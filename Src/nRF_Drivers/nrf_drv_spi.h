@@ -72,7 +72,7 @@ extern "C" {
     #define NRF_DRV_SPI_PERIPHERAL(id)  (void *)CONCAT_2(NRF_SPI, id)
 #endif
 #define SPI0_IRQ            SPI0_TWI0_IRQn
-#define SPI0_IRQ_HANDLER    SPI0_TWI0_IRQHandler
+//#define SPI0_IRQ_HANDLER    SPI0_TWI0_IRQHandler
 #define SPI1_IRQ            SPI1_TWI1_IRQn
 #define SPI1_IRQ_HANDLER    SPI1_TWI1_IRQHandler
 

@@ -1,8 +1,8 @@
 Dependencies for Project 'Wind-Cone', Target 'Target 1': (DO NOT MODIFY !)
-F (..\Src\main.c)(0x5BA835B1)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\Src\nRF_Drivers\nrf_drv_spi.h)(0x5B9E9163)
+F (..\Src\main.c)(0x5BB52132)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\Src\nRF_Drivers\nrf_drv_spi.h)(0x5BB513DE)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf_peripherals.h)(0x5B17D1D2)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_peripherals.h)(0x5B17D1D0)
 I (..\Src\nRF_Drivers\nrf_spi.h)(0x590C6BCD)
@@ -42,6 +42,8 @@ I (..\Inc\app_util.h)(0x590C6BCD)
 I (..\Inc\sdk_macros.h)(0x590C6BCD)
 I (..\Inc\nrf_log_ctrl.h)(0x590C6BCD)
 I (..\Src\nRF_log\nrf_log_ctrl_internal.h)(0x590C6BCD)
+I (..\Src\nRF_Drivers\nrf_drv_twi.h)(0x590C6BCD)
+I (..\Inc\nrf_twi.h)(0x590C6BCD)
 F (..\Src\Board Defintion\boards.c)(0x590C6BCD)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\boards.o --omf_browse .\objects\boards.crf --depend .\objects\boards.d)
 I (..\Src\Board Defintion\boards.h)(0x5BA16410)
 I (..\Inc\nrf_gpio.h)(0x590C6BCD)
@@ -63,7 +65,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (..\Inc\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (..\Inc\app_error_weak.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588BC994)
@@ -90,7 +92,7 @@ I (..\Inc\app_error.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588BC994)
 I (..\Inc\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (..\Inc\app_error_weak.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588BC994)
@@ -106,7 +108,7 @@ I (..\Src\Board Support\bsp_nfc.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (..\Inc\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Src\Board Support\bsp.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (..\Src\Board Defintion\boards.h)(0x5BA16410)
@@ -147,7 +149,7 @@ I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\In
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
@@ -168,7 +170,7 @@ I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)
@@ -209,7 +211,7 @@ I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)
@@ -225,7 +227,7 @@ I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\In
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_bitfields.h)(0x5B17D1D2)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_deprecated.h)(0x5B17D1CE)
 I (..\Inc\sdk_macros.h)(0x590C6BCD)
-I (..\Src\nRF_Drivers\nrf_drv_spi.h)(0x5B9E9163)
+I (..\Src\nRF_Drivers\nrf_drv_spi.h)(0x5BB513DE)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf_peripherals.h)(0x5B17D1D2)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_peripherals.h)(0x5B17D1D0)
 I (..\Src\nRF_Drivers\nrf_spi.h)(0x590C6BCD)
@@ -247,7 +249,7 @@ I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)
@@ -282,12 +284,53 @@ I (..\Inc\nrf_log.h)(0x590C6BCD)
 I (..\Src\nRF_log\nrf_log_internal.h)(0x590C6BCD)
 I (..\Inc\nrf_log_ctrl.h)(0x590C6BCD)
 I (..\Src\nRF_log\nrf_log_ctrl_internal.h)(0x590C6BCD)
+F (..\Src\nRF_Drivers\nrf_drv_twi.c)(0x5BB513BF)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\nrf_drv_twi.o --omf_browse .\objects\nrf_drv_twi.crf --depend .\objects\nrf_drv_twi.d)
+I (..\Inc\sdk_common.h)(0x590C6BCD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
+I (..\Inc\nordic_common.h)(0x590C6BCD)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
+I (..\Inc\sdk_os.h)(0x590C6BCD)
+I (..\Inc\sdk_errors.h)(0x590C6BCD)
+I (..\Inc\nrf_error.h)(0x590C6BCD)
+I (..\Inc\app_util.h)(0x590C6BCD)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf.h)(0x5B17D1CE)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51.h)(0x5B17D1D2)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0.h)(0x58988FDA)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h)(0x58988FDA)
+I (C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x58988FDA)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\system_nrf51.h)(0x5B17D1CC)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_bitfields.h)(0x5B17D1D2)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_deprecated.h)(0x5B17D1CE)
+I (..\Inc\sdk_macros.h)(0x590C6BCD)
+I (..\Src\nRF_Drivers\nrf_drv_twi.h)(0x590C6BCD)
+I (..\Inc\nrf_twi.h)(0x590C6BCD)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x588BC994)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf_peripherals.h)(0x5B17D1D2)
+I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_peripherals.h)(0x5B17D1D0)
+I (..\Src\nRF_Drivers\nrf_drv_common.h)(0x590C6BCD)
+I (..\Inc\nrf_assert.h)(0x590C6BCD)
+I (..\Inc\app_error.h)(0x590C6BCD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588BC994)
+I (..\Inc\app_error_weak.h)(0x590C6BCD)
+I (..\Inc\nrf_gpio.h)(0x590C6BCD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x588BC994)
+I (..\Src\nRF_Libraries\app_util_platform.h)(0x590C6BCD)
+I (..\Src\nRF_Libraries\nrf_assert.h)(0x590C6BCD)
+I (..\Src\nRF_Libraries\app_error.h)(0x590C6BCD)
+I (..\Inc\nrf_delay.h)(0x590C6BCD)
+I (..\Inc\nrf_log.h)(0x590C6BCD)
+I (..\Src\nRF_log\nrf_log_internal.h)(0x590C6BCD)
+I (..\Inc\nrf_log_ctrl.h)(0x590C6BCD)
+I (..\Src\nRF_log\nrf_log_ctrl_internal.h)(0x590C6BCD)
 F (..\Src\nRF_Libraries\app_button.c)(0x590C6BCD)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\app_button.o --omf_browse .\objects\app_button.crf --depend .\objects\app_button.d)
 I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)
@@ -335,7 +378,7 @@ I (..\Src\nRF_Libraries\app_error.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (..\Src\nRF_Libraries\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (..\Src\nRF_Libraries\app_error_weak.h)(0x590C6BCD)
 I (..\Inc\nrf_log.h)(0x590C6BCD)
@@ -364,7 +407,7 @@ I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\In
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Src\nRF_Libraries\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (..\Src\nRF_Libraries\app_error_weak.h)(0x590C6BCD)
 I (..\Inc\nrf_log.h)(0x590C6BCD)
@@ -382,7 +425,7 @@ I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)
@@ -426,7 +469,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (..\Src\nRF_Libraries\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (..\Src\nRF_Libraries\app_error_weak.h)(0x590C6BCD)
 F (..\Src\nRF_Libraries\nrf_assert.c)(0x590C6BCD)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\nrf_assert.o --omf_browse .\objects\nrf_assert.crf --depend .\objects\nrf_assert.d)
@@ -446,21 +489,21 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (..\Src\nRF_Libraries\sdk_errors.h)(0x590C6BCD)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (..\Src\nRF_Libraries\app_error_weak.h)(0x590C6BCD)
 F (..\Src\nRF_Libraries\sdk_errors.c)(0x590C6BCD)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\sdk_errors.o --omf_browse .\objects\sdk_errors.crf --depend .\objects\sdk_errors.d)
 I (..\Src\nRF_Libraries\sdk_errors.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (..\Inc\nrf_error.h)(0x590C6BCD)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 F (..\Src\nRF_log\nrf_log_frontend.c)(0x590C6BCD)(--c99 -c --cpu Cortex-M0 --li -g -O0 --apcs=interwork --split_sections -I ..\Drivers -I ..\Inc -I "..\Src\Board Defintion" -I "..\Src\Board Support" -I ..\Src\nRF_Drivers -I ..\Src\nRF_Libraries -I ..\Src\nRF_log-I.\RTE\Device\nRF51822_xxAA-I.\RTE\_Target_1-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include-D__UVISION_VERSION="524" -D_RTE_ -DNRF51 -DNRF51822 -DBOARD_PCA10028 -DNRF51-o .\objects\nrf_log_frontend.o --omf_browse .\objects\nrf_log_frontend.crf --depend .\objects\nrf_log_frontend.d)
 I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)
@@ -481,7 +524,7 @@ I (..\Inc\sdk_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x588BC994)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588BC994)
-I (..\Inc\sdk_config.h)(0x5B9D7AA2)
+I (..\Inc\sdk_config.h)(0x5BB3D619)
 I (..\Inc\nordic_common.h)(0x590C6BCD)
 I (C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\compiler_abstraction.h)(0x5B17D1CE)
 I (..\Inc\sdk_os.h)(0x590C6BCD)

@@ -17,6 +17,7 @@
 .\objects\nrf_drv_common.o: ..\Inc\sdk_config.h
 .\objects\nrf_drv_common.o: ..\Inc\sdk_common.h
 .\objects\nrf_drv_common.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\nrf_drv_common.o: ..\Inc\sdk_config.h
 .\objects\nrf_drv_common.o: ..\Inc\nordic_common.h
 .\objects\nrf_drv_common.o: ..\Inc\sdk_os.h
 .\objects\nrf_drv_common.o: ..\Inc\app_util.h

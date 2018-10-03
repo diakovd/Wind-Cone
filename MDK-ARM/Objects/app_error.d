@@ -18,12 +18,15 @@
 .\objects\app_error.o: ..\Inc\nordic_common.h
 .\objects\app_error.o: ..\Src\nRF_Libraries\app_error_weak.h
 .\objects\app_error.o: ..\Inc\nrf_log.h
+.\objects\app_error.o: ..\Inc\sdk_config.h
 .\objects\app_error.o: ..\Src\nRF_log\nrf_log_internal.h
 .\objects\app_error.o: ..\Inc\sdk_common.h
 .\objects\app_error.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\app_error.o: ..\Inc\sdk_config.h
 .\objects\app_error.o: ..\Inc\sdk_os.h
 .\objects\app_error.o: ..\Inc\sdk_errors.h
 .\objects\app_error.o: ..\Inc\app_util.h
 .\objects\app_error.o: ..\Inc\sdk_macros.h
 .\objects\app_error.o: ..\Inc\nrf_log_ctrl.h
+.\objects\app_error.o: ..\Inc\sdk_config.h
 .\objects\app_error.o: ..\Src\nRF_log\nrf_log_ctrl_internal.h

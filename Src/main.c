@@ -48,8 +48,12 @@
 #define NRF_LOG_MODULE_NAME "APP"
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
+#include "nrf_drv_twi.h"
 
-#define SPI_INSTANCE  0 /**< SPI instance index. */
+
+
+#define SPI_INSTANCE  1 /**< SPI instance index. */
+#define     SPI1_USE_EASY_DMA 1
 static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  /**< SPI instance. */
 static volatile bool spi_xfer_done;  /**< Flag used to indicate that SPI instance completed the transfer. */
 
@@ -73,14 +77,40 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
     }
 }
 
-int main(void)
+/* TWI instance ID. */
+#define TWI_INSTANCE_ID   0
+//#define TWI1_USE_EASY_DMA 1  
+
+/* Number of possible TWI addresses. */
+ #define TWI_ADDRESSES      127
+
+/* TWI instance. */
+static const nrf_drv_twi_t m_twi = NRF_DRV_TWI_INSTANCE(TWI_INSTANCE_ID);
+
+
+/**
+ * @brief TWI initialization.
+ */
+void twi_init (void)
 {
-    bsp_board_leds_init();
+    ret_code_t err_code;
 
-   // APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
+    const nrf_drv_twi_config_t twi_config = {
+       .scl                = 10,
+       .sda                = 12,
+       .frequency          = NRF_TWI_FREQ_100K,
+       .interrupt_priority = APP_IRQ_PRIORITY_HIGH,
+       .clear_bus_init     = false
+    };
 
-   // NRF_LOG_INFO("SPI example\r\n");
+    err_code = nrf_drv_twi_init(&m_twi, &twi_config, NULL, NULL);
+    APP_ERROR_CHECK(err_code);
 
+    nrf_drv_twi_enable(&m_twi);
+}
+
+void spi_init (void)
+{
     nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
     spi_config.ss_pin   = SPIM0_SS_PIN;
     spi_config.miso_pin = SPIM0_MISO_PIN;
@@ -91,7 +121,19 @@ int main(void)
 //	  spi_config.irq_priority = APP_IRQ_PRIORITY_LOW;
 //    spi_config.irq_priority  = APP_IRQ_PRIORITY_HIGH;
     APP_ERROR_CHECK(nrf_drv_spi_init(&spi, &spi_config,spi_event_handler)); //NULL)); //
+}
 
+int main(void)
+{
+    bsp_board_leds_init();
+
+// APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
+// NRF_LOG_INFO("SPI example\r\n");
+
+	spi_init();
+  twi_init();
+
+	
     while (1)
     {
         // Reset rx buffer and transfer done flag

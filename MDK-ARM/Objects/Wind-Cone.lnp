@@ -7,6 +7,7 @@
 ".\objects\nrf_drv_gpiote.o"
 ".\objects\nrf_drv_spi.o"
 ".\objects\nrf_drv_uart.o"
+".\objects\nrf_drv_twi.o"
 ".\objects\app_button.o"
 ".\objects\app_error.o"
 ".\objects\app_error_weak.o"

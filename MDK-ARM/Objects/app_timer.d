@@ -9,6 +9,7 @@
 .\objects\app_timer.o: ..\Inc\sdk_os.h
 .\objects\app_timer.o: ..\Inc\sdk_errors.h
 .\objects\app_timer.o: ..\Inc\nrf_error.h
+.\objects\app_timer.o: ..\Inc\sdk_config.h
 .\objects\app_timer.o: ..\Inc\app_util.h
 .\objects\app_timer.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf.h
 .\objects\app_timer.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51.h
@@ -20,6 +21,7 @@
 .\objects\app_timer.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51_deprecated.h
 .\objects\app_timer.o: ..\Inc\sdk_macros.h
 .\objects\app_timer.o: ..\Src\nRF_Libraries\app_timer.h
+.\objects\app_timer.o: ..\Inc\sdk_config.h
 .\objects\app_timer.o: ..\Src\nRF_Libraries\app_error.h
 .\objects\app_timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\app_timer.o: ..\Src\nRF_Libraries\sdk_errors.h

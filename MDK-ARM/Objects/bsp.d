@@ -30,4 +30,5 @@
 .\objects\bsp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\objects\bsp.o: ..\Inc\bsp_config.h
 .\objects\bsp.o: ..\Src\nRF_Libraries\app_timer.h
+.\objects\bsp.o: ..\Inc\sdk_config.h
 .\objects\bsp.o: ..\Inc\app_util.h

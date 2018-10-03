@@ -9,6 +9,7 @@
 .\objects\nrf_log_backend_serial.o: ..\Inc\sdk_os.h
 .\objects\nrf_log_backend_serial.o: ..\Inc\sdk_errors.h
 .\objects\nrf_log_backend_serial.o: ..\Inc\nrf_error.h
+.\objects\nrf_log_backend_serial.o: ..\Inc\sdk_config.h
 .\objects\nrf_log_backend_serial.o: ..\Inc\app_util.h
 .\objects\nrf_log_backend_serial.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf.h
 .\objects\nrf_log_backend_serial.o: C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.17.0\Device\Include\nrf51.h
