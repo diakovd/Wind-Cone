@@ -48,8 +48,9 @@
 #define NRF_LOG_MODULE_NAME "APP"
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
+#include "SSD1306.h"
+#include "Adafruit_GFX.h"
 #include "nrf_drv_twi.h"
-
 
 
 #define SPI_INSTANCE  1 /**< SPI instance index. */
@@ -85,28 +86,28 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
  #define TWI_ADDRESSES      127
 
 /* TWI instance. */
-static const nrf_drv_twi_t m_twi = NRF_DRV_TWI_INSTANCE(TWI_INSTANCE_ID);
+const nrf_drv_twi_t m_twi_master = NRF_DRV_TWI_INSTANCE(TWI_INSTANCE_ID);
 
 
 /**
- * @brief TWI initialization.
+ * @? TWI initialization.
  */
 void twi_init (void)
 {
     ret_code_t err_code;
 
-    const nrf_drv_twi_config_t twi_config = {
-       .scl                = 10,
-       .sda                = 12,
+    const nrf_drv_twi_config_t twi_sensors_config = {
+       .scl                = 2,  
+       .sda                = 3,
        .frequency          = NRF_TWI_FREQ_100K,
-       .interrupt_priority = APP_IRQ_PRIORITY_HIGH,
-       .clear_bus_init     = false
+       .interrupt_priority = APP_IRQ_PRIORITY_HIGH
     };
 
-    err_code = nrf_drv_twi_init(&m_twi, &twi_config, NULL, NULL);
+    //err_code = nrf_drv_twi_init(&m_twi_lis2dh12, &twi_lis2dh12_config, twi_handler, NULL);
+    err_code = nrf_drv_twi_init(&m_twi_master, &twi_sensors_config, NULL, NULL);        // twi in blocking mode.
     APP_ERROR_CHECK(err_code);
 
-    nrf_drv_twi_enable(&m_twi);
+    nrf_drv_twi_enable(&m_twi_master);
 }
 
 void spi_init (void)
@@ -123,6 +124,14 @@ void spi_init (void)
     APP_ERROR_CHECK(nrf_drv_spi_init(&spi, &spi_config,spi_event_handler)); //NULL)); //
 }
 
+void testdrawcircle(void) {
+  for (int16_t i=0; i< Adafruit_GFX_height()/2; i+=2) {
+    Adafruit_GFX_drawCircle(Adafruit_GFX_width()/2, Adafruit_GFX_height()/2, i, WHITE);
+    SSD1306_display();
+    nrf_delay_ms(200);
+  }
+}
+
 int main(void)
 {
     bsp_board_leds_init();
@@ -133,6 +142,28 @@ int main(void)
 	spi_init();
   twi_init();
 
+////
+//Test display
+////	
+    SSD1306_begin(SSD1306_SWITCHCAPVCC, 0x3C, false);
+    Adafruit_GFX_init(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT, SSD1306_drawPixel);
+
+    SSD1306_clearDisplay();
+    Adafruit_GFX_drawBitmap(0, 0,  el_logo, 128, 64, 1);
+    SSD1306_display();
+    nrf_delay_ms(1000);
+
+    for (;;) {
+
+      SSD1306_clearDisplay();
+      SSD1306_display();
+
+      testdrawcircle();
+
+      nrf_delay_ms(500);
+    }
+////	
+	
 	
     while (1)
     {

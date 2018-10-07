@@ -45,6 +45,8 @@
 .\objects\main.o: ..\Inc\nrf_log_ctrl.h
 .\objects\main.o: ..\Inc\sdk_config.h
 .\objects\main.o: ..\Src\nRF_log\nrf_log_ctrl_internal.h
+.\objects\main.o: ..\Src\Display\SSD1306\SSD1306.h
+.\objects\main.o: ..\Src\Display\SSD1306\Adafruit_GFX.h
 .\objects\main.o: ..\Src\nRF_Drivers\nrf_drv_twi.h
 .\objects\main.o: ..\Inc\sdk_config.h
 .\objects\main.o: ..\Inc\nrf_twi.h

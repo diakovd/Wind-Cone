@@ -336,7 +336,7 @@
               <MiscControls></MiscControls>
               <Define>NRF51822 BOARD_PCA10028 NRF51</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Drivers;..\Inc;..\Src\Board Defintion;..\Src\Board Support;..\Src\nRF_Drivers;..\Src\nRF_Libraries;..\Src\nRF_log</IncludePath>
+              <IncludePath>..\Drivers;..\Inc;..\Src\Board Defintion;..\Src\Board Support;..\Src\nRF_Drivers;..\Src\nRF_Libraries;..\Src\nRF_log;..\Src\Display\SSD1306</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -494,6 +494,26 @@
               <FileName>nrf_log_backend_serial.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\nRF_log\nrf_log_backend_serial.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Display ssd1306</GroupName>
+          <Files>
+            <File>
+              <FileName>Adafruit_GFX.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Display\SSD1306\Adafruit_GFX.c</FilePath>
+            </File>
+            <File>
+              <FileName>glcdfont.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Display\SSD1306\glcdfont.c</FilePath>
+            </File>
+            <File>
+              <FileName>SSD1306.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Display\SSD1306\SSD1306.c</FilePath>
             </File>
           </Files>
         </Group>
