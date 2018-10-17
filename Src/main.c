@@ -53,15 +53,22 @@
 #include "nrf_drv_twi.h"
 
 
-#define SPI_INSTANCE  1 /**< SPI instance index. */
-#define     SPI1_USE_EASY_DMA 1
+#define SPI_INSTANCE  0 /**< SPI instance index. */
+//#define     SPI1_USE_EASY_DMA 0
 static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  /**< SPI instance. */
 static volatile bool spi_xfer_done;  /**< Flag used to indicate that SPI instance completed the transfer. */
 
-#define TEST_STRING "Nordic"
+#define hRD_System_Configuration_Reg 0x40
+#define lRD_System_Configuration_Reg 0xFE
+
 static uint8_t       m_tx_buf[2] = {0xFE,0x40}; //TEST_STRING;           /**< TX buffer. FE41 */
-static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
+static uint8_t       m_rx_buf[3];    /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
+
+#define TEST_STRING2 "WindCone Test"
+static uint8_t  displ_string[sizeof(TEST_STRING2) + 1] = TEST_STRING2;    /**< RX buffer. */
+static uint8_t  displ_rx[20];// = {0xFE,0x40}; //TEST_STRING;           /**< TX buffer. FE41 */
+
 
 /**
  * @brief SPI user event handler.
@@ -79,8 +86,8 @@ void spi_event_handler(nrf_drv_spi_evt_t const * p_event)
 }
 
 /* TWI instance ID. */
-#define TWI_INSTANCE_ID   0
-//#define TWI1_USE_EASY_DMA 1  
+#define TWI_INSTANCE_ID   1
+#define TWI1_USE_EASY_DMA 0  
 
 /* Number of possible TWI addresses. */
  #define TWI_ADDRESSES      127
@@ -97,8 +104,8 @@ void twi_init (void)
     ret_code_t err_code;
 
     const nrf_drv_twi_config_t twi_sensors_config = {
-       .scl                = 2,  
-       .sda                = 3,
+       .scl                = 12,  
+       .sda                = 10,
        .frequency          = NRF_TWI_FREQ_100K,
        .interrupt_priority = APP_IRQ_PRIORITY_HIGH
     };
@@ -121,7 +128,7 @@ void spi_init (void)
 		spi_config.mode = NRF_DRV_SPI_MODE_1; 
 //	  spi_config.irq_priority = APP_IRQ_PRIORITY_LOW;
 //    spi_config.irq_priority  = APP_IRQ_PRIORITY_HIGH;
-    APP_ERROR_CHECK(nrf_drv_spi_init(&spi, &spi_config,spi_event_handler)); //NULL)); //
+    APP_ERROR_CHECK(nrf_drv_spi_init(&spi, &spi_config, NULL)); //spi_event_handler)); //NULL)); //
 }
 
 void testdrawcircle(void) {
@@ -132,12 +139,21 @@ void testdrawcircle(void) {
   }
 }
 
+void printStr(char *str)
+{
+    for (uint8_t i = 0; i < strlen(str); i++) {
+        Adafruit_GFX_write(str[i]);
+        if ((i > 0) && (i % 21 == 0))
+            Adafruit_GFX_write('\n');
+    }
+    Adafruit_GFX_write('\n');
+    SSD1306_display();
+	
+}	
+
 int main(void)
 {
-    bsp_board_leds_init();
-
-// APP_ERROR_CHECK(NRF_LOG_INIT(NULL));
-// NRF_LOG_INFO("SPI example\r\n");
+  bsp_board_leds_init();
 
 	spi_init();
   twi_init();
@@ -148,21 +164,13 @@ int main(void)
     SSD1306_begin(SSD1306_SWITCHCAPVCC, 0x3C, false);
     Adafruit_GFX_init(SSD1306_LCDWIDTH, SSD1306_LCDHEIGHT, SSD1306_drawPixel);
 
-    SSD1306_clearDisplay();
-    Adafruit_GFX_drawBitmap(0, 0,  el_logo, 128, 64, 1);
-    SSD1306_display();
-    nrf_delay_ms(1000);
+	  SSD1306_clearDisplay();
+    Adafruit_GFX_setTextSize(1);
+    Adafruit_GFX_setTextColor(1,0);
+    Adafruit_GFX_setCursor(0, 0);
 
-    for (;;) {
-
-      SSD1306_clearDisplay();
-      SSD1306_display();
-
-      testdrawcircle();
-
-      nrf_delay_ms(500);
-    }
-////	
+		printStr(TEST_STRING2);
+	
 	
 	
     while (1)
@@ -171,15 +179,21 @@ int main(void)
         memset(m_rx_buf, 0, m_length);
         spi_xfer_done = false;
 
+				m_tx_buf[0] = lRD_System_Configuration_Reg;
+				m_tx_buf[1] = hRD_System_Configuration_Reg;
+			
         APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
 
-        while (!spi_xfer_done)
+/*        while (!spi_xfer_done)
         {
             __WFE();
         }
+*/
+				sprintf(displ_rx,"Sys_Conf_Reg 0x%X 0x%X", m_rx_buf[0], m_rx_buf[1]);
 
-      //  NRF_LOG_FLUSH();
+				printStr(displ_rx);
 
+			
         bsp_board_led_invert(BSP_BOARD_LED_0);
         nrf_delay_ms(200);
     }
