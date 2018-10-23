@@ -58,17 +58,41 @@
 static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  /**< SPI instance. */
 static volatile bool spi_xfer_done;  /**< Flag used to indicate that SPI instance completed the transfer. */
 
-#define hRD_System_Configuration_Reg 0x40
-#define lRD_System_Configuration_Reg 0xFE
+#define hRD_System_Configuration_Reg 0xFE 
+#define lRD_System_Configuration_Reg 0x40
+
+#define hWR_READ_ANGLE 0xFF
+#define lWR_READ_ANGLE 0xFF
+
+#define hError_Status 0xB4
+#define lError_Status 0x66 
+
+#define hMaster_Reset 0x67
+#define lMaster_Reset 0x4A
+
+#define hWR_POR_OFF 0x7E
+#define lWR_POR_OFF 0x44
+
+#define hRD_POR_OFF 0xFE
+#define lRD_POR_OFF 0x45
+
+
+#define ANGULAR_RESOLUTION 1024
+
+
 
 static uint8_t       m_tx_buf[2] = {0xFE,0x40}; //TEST_STRING;           /**< TX buffer. FE41 */
-static uint8_t       m_rx_buf[3];    /**< RX buffer. */
+static uint8_t       m_rx_buf[2];    /**< RX buffer. */
 static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
 
 #define TEST_STRING2 "WindCone Test"
 static uint8_t  displ_string[sizeof(TEST_STRING2) + 1] = TEST_STRING2;    /**< RX buffer. */
 static uint8_t  displ_rx[20];// = {0xFE,0x40}; //TEST_STRING;           /**< TX buffer. FE41 */
 
+static uint8_t  Alarm_Lo = 0;
+static uint8_t  Alarm_Hi = 0;
+static uint16_t	Angle_Value = 0;
+float angel; 
 
 /**
  * @brief SPI user event handler.
@@ -171,30 +195,102 @@ int main(void)
 
 		printStr(TEST_STRING2);
 	
-	
-	
-    while (1)
-    {
-        // Reset rx buffer and transfer done flag
-        memset(m_rx_buf, 0, m_length);
-        spi_xfer_done = false;
+		// Reset rx buffer and transfer done flag
+		memset(m_rx_buf, 0, m_length);
+		spi_xfer_done = false;
 
-				m_tx_buf[0] = lRD_System_Configuration_Reg;
-				m_tx_buf[1] = hRD_System_Configuration_Reg;
-			
-        APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+		m_tx_buf[0] = hMaster_Reset;
+		m_tx_buf[1] = lMaster_Reset;
+		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+		nrf_delay_ms(1);
+
+
+		m_tx_buf[0] = hWR_POR_OFF;
+		m_tx_buf[1] = lWR_POR_OFF;
+		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+		
+		m_tx_buf[0] = 0x00;
+		m_tx_buf[1] = 0xB4;
+		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+
+//		m_tx_buf[0] = hRD_POR_OFF;
+//  	m_tx_buf[1] = lRD_POR_OFF;
+//		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+
+		m_tx_buf[0] = hRD_System_Configuration_Reg;
+		m_tx_buf[1] = lRD_System_Configuration_Reg;
+		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+
+		Adafruit_GFX_setCursor(0, 16);
+
+		sprintf(displ_rx,"Sys_Conf_Reg 0x%X 0x%X", m_rx_buf[0], m_rx_buf[1]);
+		printStr(displ_rx);
+
+		m_tx_buf[0] = lMaster_Reset;
+		m_tx_buf[1] = hMaster_Reset;
+
+		APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+		nrf_delay_ms(1);
+
+
+	while (1)
+    {
 
 /*        while (!spi_xfer_done)
         {
             __WFE();
         }
 */
-				sprintf(displ_rx,"Sys_Conf_Reg 0x%X 0x%X", m_rx_buf[0], m_rx_buf[1]);
 
+				m_tx_buf[0] = lWR_READ_ANGLE;
+				m_tx_buf[1] = hWR_READ_ANGLE;
+        APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+				nrf_delay_ms(1);
+			
+        APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+				nrf_delay_ms(1);
+
+
+				if(m_rx_buf[0] & 0x80) Alarm_Lo = 1; else Alarm_Lo = 0; 
+
+  			if(m_rx_buf[0] & 0x40) Alarm_Hi = 1; else Alarm_Hi = 0; 
+				Angle_Value = ((m_rx_buf[0] & 0xF) << 6) + (m_rx_buf[1] >> 2);
+				angel = Angle_Value*360/(float)ANGULAR_RESOLUTION;
+
+				if(Alarm_Hi&Alarm_Lo)
+				{
+					m_tx_buf[0] = hError_Status;
+					m_tx_buf[1] = lError_Status;
+				
+					APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+					APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+
+					Adafruit_GFX_setCursor(0, 16);
+
+					sprintf(displ_rx,"Error_Status 0x%X 0x%X", m_rx_buf[0], m_rx_buf[1]);
+					printStr(displ_rx);
+
+
+
+					m_tx_buf[0] = hMaster_Reset;
+					m_tx_buf[1] = lMaster_Reset;
+
+					APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+					nrf_delay_ms(1);
+				}
+
+				Adafruit_GFX_setCursor(0, 32);
+				sprintf(displ_rx,"Alarm_Lo %d", Alarm_Lo);
 				printStr(displ_rx);
 
-			
+				sprintf(displ_rx,"Alarm_Hi %d", Alarm_Hi);
+				printStr(displ_rx);
+
+				sprintf(displ_rx,"Angle_Value %f", angel); //%d",Angle_Value);
+				printStr(displ_rx);
+
         bsp_board_led_invert(BSP_BOARD_LED_0);
-        nrf_delay_ms(200);
+//        nrf_delay_ms(200);
     }
 }

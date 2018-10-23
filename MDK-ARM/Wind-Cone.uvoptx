@@ -150,9 +150,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>192</LineNumber>
+          <LineNumber>208</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>5746</Address>
+          <Address>9286</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -161,14 +161,14 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>C:\Users\Р”РёРјР°\Documents\projects\Wind cone\Soft_cpu\Wind-Cone\Src\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Wind_Cone\../Src/main.c\192</Expression>
+          <Expression>\\Wind_Cone\../Src/main.c\208</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>185</LineNumber>
+          <LineNumber>214</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>5712</Address>
+          <Address>9340</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -177,14 +177,14 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>C:\Users\Р”РёРјР°\Documents\projects\Wind cone\Soft_cpu\Wind-Cone\Src\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Wind_Cone\../Src/main.c\185</Expression>
+          <Expression>\\Wind_Cone\../Src/main.c\214</Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>196</LineNumber>
+          <LineNumber>223</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>5766</Address>
+          <Address>9462</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -193,7 +193,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>C:\Users\Р”РёРјР°\Documents\projects\Wind cone\Soft_cpu\Wind-Cone\Src\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Wind_Cone\../Src/main.c\196</Expression>
+          <Expression>\\Wind_Cone\../Src/main.c\223</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -206,6 +206,21 @@
           <count>1</count>
           <WinNumber>1</WinNumber>
           <ItemText>m_tx_buf</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Alarm_Lo</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Alarm_Hi</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>Angle_Value</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>
@@ -533,7 +548,7 @@
 
   <Group>
     <GroupName>Display ssd1306</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
